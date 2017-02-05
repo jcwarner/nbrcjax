@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+
+<script type="text/javascript" src="/static/js/analytics.js"></script>
+<script type="text/javascript">archive_analytics.values.server_name="wwwb-app36.us.archive.org";archive_analytics.values.server_ms=148;</script>
+<link type="text/css" rel="stylesheet" href="/static/css/banner-styles.css"/>
+
+
+	<title>New Berlin Road Church | Home</title>
+
+<base href="/web/20131022181622/http://nbrcjax.org/litesite.cfm?id=135" /> 
+	<link rel="canonical" href="http://www.nbrcjax.org" />
+
+
+
+<link rel="stylesheet" href="/web/20131022181622cs_/http://nbrcjax.org/sr/css/lite_style_sheet.css" media="screen"/> 
+<link rel="stylesheet" href="/web/20131022181622cs_/http://nbrcjax.org/sr/css/lite_style_sheet.css" media="handheld, only screen and (max-device-width:480px)"/>
+<link rel="stylesheet" href="/web/20131022181622cs_/http://nbrcjax.org/sr/css/utility_style_sheet.css" /> 
+
+
+<style type="text/css" media="screen, projection, print">
+
+
+a, fieldset legend, #navbar a:hover, #bottom_nav a, .ContentHeader, h1, #content .ContentHeader, #content h1, #content .ContentSubHeader {color: #0077CC;}
+
+#navbar li>a.active {color: #0077CC;}
+.contentTable th {border-bottom: 2px solid #0077CC;}
+.PicOn {border: 5px solid #0077CC;}
+.boxoverbody {border: 2px solid #0077CC;}
+input:focus, select:focus, .textareainput:focus, .iefocus {border: 1px solid #0077CC;}
+
+
+</style>
+
+
+<script src="/web/20131022181622js_/http://nbrcjax.org/sr/js/ajax.js" type="text/javascript"></script>
+<script src="/web/20131022181622js_/http://nbrcjax.org/sr/js/utils.js" type="text/javascript"></script>
+
+
+<link rel="shortcut icon" href="favicon.ico" />
+
+<meta name="viewport" content="width=320,user-scalable=true" />
+
+
+
+
+
+<script type="text/javascript" src="/web/20131022181622js_/http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		// HIDE CLOSE BUTTONS
+		$('.menu').hide();
+		$('span.hide_nav').hide();
+		
+		// TOGGLE MENU OPEN
+		$('span.show_nav').click(function(){
+			$('.menu').show();
+			$('span.show_nav').hide();
+			$('span.hide_nav').show();
+			$("html, body").animate({ scrollTop: 0 }, "fast");
+		});
+		
+		// TOGGLE MENU CLOSED
+		$('span.hide_nav').click(function(){
+			$('.menu').hide();
+			$('span.menu_close').hide();
+			$('span.menu_expand').show();
+			$('span.show_nav').show();
+			$('span.hide_nav').hide();
+			$('ul.menu li ul').css({'display' : 'none'});
+		});
+	
+		// Create EXPAND/CLOSE and hide CLOSE
+		$('ul.menu li a').next('ul').parent().append('<span class="menu_expand">Open &darr;</span>');
+		$('ul.menu li a').next('ul').parent().append('<span class="menu_close">Close &uarr;</span>');
+		$('span.menu_close').hide();
+		
+		$('span.menu_expand').click(function(){
+			$(this).parent().children('ul').css({'display' : 'block'});
+			$(this).hide();
+			$(this).next('span.menu_close').show();
+			return false;
+		});
+		
+		$('span.menu_close').click(function(){
+			$(this).parent().children('ul').css({'display' : 'none'});
+			$(this).hide();
+			$(this).prev('span.menu_expand').show();
+			return false;
+		});
+		
+	});
+	
+	// Marquee Resizing Helper
+	$(document).ready(function(){
+		
+		// Initial Resizing
+		var startingHeight = $('#flashbox').outerHeight();
+		var startingWidth = $('#flashbox').outerWidth();
+		var resizeRatio = (startingWidth / startingHeight);
+		
+		if ($('#flashbox').children('img').length){
+			$('#flashbox').css({'height' : 'auto'});
+		} else {
+			$('#flashbox').css({'max-width' : '100%'});
+			var resizedWidth = $('#flashbox').outerWidth();
+			$('#flashbox').css({'height' : (resizedWidth / resizeRatio)});
+			// Resize as window changes
+			$(window).resize(function(){
+				var resizedWidth = $('#flashbox').outerWidth();
+				$('#flashbox').css({'height' : (resizedWidth / resizeRatio)});
+			});
+		}
+		
+	});
+	
+	// For responsive video
+	$(document).ready(function(){
+	
+		$('iframe, embed, object').each(function(){
+			$(this).removeAttr('width');
+			$(this).removeAttr('height');
+			$(this).wrap('<div class="video-container" />')
+		});
+		
+		// Hide music player inside of Flashbox
+		$('#flashbox > div.video-container').css({'position' : 'absolute'});
+		
+		$('iframe').each(function(){
+			var url = $(this).attr("src")
+			$(this).attr("src",url+"?wmode=transparent")
+		});
+		
+	});
+	
+</script>
+
+</head>
+
+<body>
+
+
+<!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script type="text/javascript" src="/static/js/disclaim-element.js" ></script>
+<script type="text/javascript" src="/static/js/graph-calc.js" ></script>
+<script type="text/javascript">//<![CDATA[
+var __wm = (function(imgWidth,imgHeight,yearImgWidth,monthImgWidth){
+var wbPrefix = "/web/";
+var wbCurrentUrl = "http://nbrcjax.org/litesite.cfm";
+
+var firstYear = 1996;
+var displayDay = "22";
+var displayMonth = "Oct";
+var displayYear = "2013";
+var prettyMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var $D=document,$=function(n){return document.getElementById(n)};
+var trackerVal,curYear = -1,curMonth = -1;
+var yearTracker,monthTracker;
+function showTrackers(val) {
+  if (val===trackerVal) return;
+  var $ipp=$("wm-ipp");
+  var $y=$("displayYearEl"),$m=$("displayMonthEl"),$d=$("displayDayEl");
+  if (val) {
+    $ipp.className="hi";
+  } else {
+    $ipp.className="";
+    $y.innerHTML=displayYear;$m.innerHTML=displayMonth;$d.innerHTML=displayDay;
+  }
+  yearTracker.style.display=val?"inline":"none";
+  monthTracker.style.display=val?"inline":"none";
+  trackerVal = val;
+}
+function trackMouseMove(event,element) {
+  var eventX = getEventX(event);
+  var elementX = getElementX(element);
+  var xOff = Math.min(Math.max(0, eventX - elementX),imgWidth);
+  var monthOff = xOff % yearImgWidth;
+
+  var year = Math.floor(xOff / yearImgWidth);
+  var monthOfYear = Math.min(11,Math.floor(monthOff / monthImgWidth));
+  // 1 extra border pixel at the left edge of the year:
+  var month = (year * 12) + monthOfYear;
+  var day = monthOff % 2==1?15:1;
+  var dateString = zeroPad(year + firstYear) + zeroPad(monthOfYear+1,2) +
+    zeroPad(day,2) + "000000";
+
+  $("displayYearEl").innerHTML=year+firstYear;
+  $("displayMonthEl").innerHTML=prettyMonths[monthOfYear];
+  // looks too jarring when it changes..
+  //$("displayDayEl").innerHTML=zeroPad(day,2);
+  var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+  $("wm-graph-anchor").href=url;
+
+  if(curYear != year) {
+    var yrOff = year * yearImgWidth;
+    yearTracker.style.left = yrOff + "px";
+    curYear = year;
+  }
+  if(curMonth != month) {
+    var mtOff = year + (month * monthImgWidth) + 1;
+    monthTracker.style.left = mtOff + "px";
+    curMonth = month;
+  }
+}
+function hideToolbar() {
+  $("wm-ipp").style.display="none";
+}
+function bootstrap() {
+  var $spk=$("wm-ipp-sparkline");
+  yearTracker=$D.createElement('div');
+  yearTracker.className='yt';
+  with(yearTracker.style){
+    display='none';width=yearImgWidth+"px";height=imgHeight+"px";
+  }
+  monthTracker=$D.createElement('div');
+  monthTracker.className='mt';
+  with(monthTracker.style){
+    display='none';width=monthImgWidth+"px";height=imgHeight+"px";
+  }
+  $spk.appendChild(yearTracker);
+  $spk.appendChild(monthTracker);
+
+  var $ipp=$("wm-ipp");
+  $ipp&&disclaimElement($ipp);
+}
+return{st:showTrackers,mv:trackMouseMove,h:hideToolbar,bt:bootstrap};
+})(550, 27, 25, 2);//]]>
+</script>
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  min-width:800px !important;
+}
+</style>
+<div id="wm-ipp" lang="en" style="display:none;">
+
+<div style="position:fixed;left:0;top:0;width:100%!important">
+<div id="wm-ipp-inside">
+   <table style="width:100%;"><tbody><tr>
+   <td id="wm-logo">
+       <a href="/web/" title="Wayback Machine home page"><img src="/static/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0" /></a>
+   </td>
+   <td class="c">
+       <table style="margin:0 auto;"><tbody><tr>
+       <td class="u" colspan="2">
+       <form target="_top" method="get" action="/web/form-submit.jsp" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="http://nbrcjax.org/litesite.cfm" style="width:400px;" onfocus="this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20131022181622" /><input type="submit" value="Go" /><span id="wm_tb_options" style="display:block;"></span></form>
+       </td>
+       <td class="n" rowspan="2">
+           <table><tbody>
+           <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+           <tr class="m">
+           	<td class="b" nowrap="nowrap">
+		
+		    Sep
+		
+		</td>
+		<td class="c" id="displayMonthEl" title="You are here: 18:16:22 Oct 22, 2013">OCT</td>
+		<td class="f" nowrap="nowrap">
+		
+		    Nov
+		
+                </td>
+	    </tr>
+           <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+           <tr class="d">
+               <td class="b" nowrap="nowrap">
+               
+                       <img src="/static/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0" />
+               
+               </td>
+               <td class="c" id="displayDayEl" style="width:34px;font-size:24px;" title="You are here: 18:16:22 Oct 22, 2013">22</td>
+	       <td class="f" nowrap="nowrap">
+               
+                   <img src="/static/images/toolbar/wm_tb_nxt_off.png" alt="Next capture" width="14" height="16" border="0"/>
+               
+	       </td>
+           </tr>
+           <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+           <tr class="y">
+	       <td class="b" nowrap="nowrap">
+               
+                   2012
+               
+               </td>
+               <td class="c" id="displayYearEl" title="You are here: 18:16:22 Oct 22, 2013">2013</td>
+	       <td class="f" nowrap="nowrap">
+               
+                   2014
+               
+	       </td>
+           </tr>
+           </tbody></table>
+       </td>
+       </tr>
+       <tr>
+       <td class="s">
+           <a class="t" href="/web/20131022181622*/http://nbrcjax.org/litesite.cfm" title="See a list of every capture for this URL">1 captures</a>
+           <div class="r" title="Timespan for captures of this URL">22 Oct 13 - 22 Oct 13</div>
+       </td>
+       <td class="k">
+       <a href="" id="wm-graph-anchor">
+       <div id="wm-ipp-sparkline" title="Explore captures for this URL">
+	 <img id="sparklineImgId" alt="sparklines"
+		 onmouseover="__wm.st(1)" onmouseout="__wm.st(0)"
+		 onmousemove="__wm.mv(event,this)"
+		 width="550"
+		 height="27"
+		 border="0"
+		 src="/web/jsp/graph.jsp?graphdata=550_27_1996:-1:000000000000_1997:-1:000000000000_1998:-1:000000000000_1999:-1:000000000000_2000:-1:000000000000_2001:-1:000000000000_2002:-1:000000000000_2003:-1:000000000000_2004:-1:000000000000_2005:-1:000000000000_2006:-1:000000000000_2007:-1:000000000000_2008:-1:000000000000_2009:-1:000000000000_2010:-1:000000000000_2011:-1:000000000000_2012:-1:000000000000_2013:9:000000000100_2014:-1:000000000000_2015:-1:000000000000_2016:-1:000000000000_2017:-1:000000000000" />
+       </div>
+       </a>
+       </td>
+       </tr></tbody></table>
+   </td>
+   <td class="r">
+       <a href="#close" onclick="__wm.h();return false;" style="background-image:url(/static/images/toolbar/wm_tb_close.png);top:5px;" title="Close the toolbar">Close</a>
+       <a href="http://faq.web.archive.org/" style="background-image:url(/static/images/toolbar/wm_tb_help.png);bottom:5px;" title="Get some help using the Wayback Machine">Help</a>
+   </td>
+   </tr></tbody></table>
+</div>
+</div>
+</div>
+<script type="text/javascript">__wm.bt();</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+	
+<div id="toolbar">
+
+	<a href="/web/20131022181622/http://nbrcjax.org/content.cfm?id=135&amp;website_view=full" id="full_site" title="View Full Site">VIEW FULL SITE</a>
+
+	<span class="show_nav">MENU</span>
+	<span class="hide_nav">Close</span>
+	
+</div>
+
+<div id="navbar">
+	<ul class="menu">
+		
+		<li class="firstlevel first "><a href="litesite.cfm?id=135" class="active cssnavlevelone first"><img src="/web/20131022181622im_/http://nbrcjax.org/sr/images/shim.gif" width="1" alt="" class="cssnavlevelone" />Home </a></li><li class="firstlevel "><a href="litesite.cfm?id=200" class="x200 cssnavlevelone"><img src="/web/20131022181622im_/http://nbrcjax.org/sr/images/shim.gif" width="1" alt="" class="cssnavlevelone" />About NBRC </a><ul><li class=" first "><a href="litesite.cfm?id=266" class="x266">How to Find Us </a></li><li class=" "><a href="litesite.cfm?id=296" class="x296">What We Believe </a></li><li class=" last"><a href="litesite.cfm?id=309" class="x309">Meet Our Staff <b>&#187;</b></a><ul><li class=" first "><a href="litesite.cfm?id=311" class="x311">Matthew Meadows </a></li><li class=" "><a href="litesite.cfm?id=312" class="x312">Karen Davis </a></li><li class=" last"><a href="litesite.cfm?id=313" class="x313">Vision Team </a></li></ul></li> </ul></li> <li class="firstlevel "><a href="litesite.cfm?id=148" class="x148 cssnavlevelone"><img src="/web/20131022181622im_/http://nbrcjax.org/sr/images/shim.gif" width="1" alt="" class="cssnavlevelone" />Our Ministries </a><ul><li class=" first "><a href="litesite.cfm?id=298" class="x298">Adult Ministries </a></li><li class=" "><a href="litesite.cfm?id=306" class="x306">Worship Ministry </a></li><li class=" "><a href="litesite.cfm?id=299" class="x299">NBRC Student Ministry <b>&#187;</b></a><ul><li class=" first last"><a href="/web/20131022181622/http://www.facebook.com/groups/205601512814542/" target=_blank; class="x315">NBRC SM Facebook </a></li></ul></li> <li class=" last"><a href="litesite.cfm?id=300" class="x300">Kids&#39; Connection <b>&#187;</b></a><ul><li class=" first "><a href="litesite.cfm?id=314" class="x314">Childcare Servant Schedule </a></li><li class=" last"><a href="/web/20131022181622/http://www.facebook.com/groups/301942999822803/" target=_blank; class="x316">Kids&#39; Connection Facebook </a></li></ul></li> </ul></li> <li class="firstlevel "><a href="javascript:void(null)" style="cursor:default;" class="x245 cssnavlevelone"><img src="/web/20131022181622im_/http://nbrcjax.org/sr/images/shim.gif" width="1" alt="" class="cssnavlevelone" />Upcoming Events </a><ul><li class=" first "><a href="litesite.cfm?id=102" class="x102">NBRC Calendar </a></li><li class=" last"><a href="litesite.cfm?id=133" class="x133">NBRC Announcements </a></li></ul></li> <li class="firstlevel "><a href="/web/20131022181622/http://sermon.net/nbrcjax" class="x213 cssnavlevelone"><img src="/web/20131022181622im_/http://nbrcjax.org/sr/images/shim.gif" width="1" alt="" class="cssnavlevelone" />Our Podcast </a></li><li class="firstlevel last"><a href="litesite.cfm?id=150" class="x150 cssnavlevelone"><img src="/web/20131022181622im_/http://nbrcjax.org/sr/images/shim.gif" width="1" alt="" class="cssnavlevelone" />Contact NBRC </a></li> 
+		
+	</ul>
+</div>
+	
+<div id="container">
+
+	<div id="wrapper">
+	
+		<div id="header">
+					
+			
+				<a href="litesite.cfm" id="logotext" title="New Berlin Road Church"><h1>New Berlin Road Church</h1></a>
+			
+			
+			<div class="clear"></div>
+		
+		</div>
+	
+
+		
+		
+		
+			
+			
+			<link rel="stylesheet" type="text/css" href="/web/20131022181622cs_/http://nbrcjax.org/sr/css/banner-rotator.css"/>
+			<script type="text/javascript" src="/web/20131022181622js_/http://nbrcjax.org/sr/js/jquery.banner-rotator.min.js"></script>
+			
+			<script type="text/javascript">
+			$(document).ready(function(){
+					$('#marquee-rotator-container').bannerRotator({
+						width:900,
+						height:400,
+						//
+						timer:'bar',
+						timerAlign:'bottomRight',
+						navButtons:'large',
+						tooltip:'image',
+						pauseOnHover:true,
+						thumbnails:'bullet',
+						playButton:false,
+						cssTransition:false,
+						cpanelOutside:false,
+						cpanelOnHover:true,
+						selectOnHover:false,
+						navButtonsOnHover:true
+				  	});
+			   	}
+			);
+			</script>
+			
+			<div id="flashbox" style="width:900px;height:400px;overflow:hidden;">
+			
+				<div id="marquee-rotator-container" class="banner-rotator">
+					<ul>
+						
+								<li  data-effect="fade" data-delay="6000">
+				                	<a href="/web/20131022181622/http://nbrcjax.org/images/library/Website_Temp_/he_is_risen.jpg">
+				                		<img src="/web/20131022181622im_/http://nbrcjax.org/images/library/Website_Temp_/thumbnails/he_is_risen.jpg"/>
+				                	</a>
+								</li>
+							
+								<li  data-effect="fade" data-delay="6000">
+				                	<a href="/web/20131022181622/http://nbrcjax.org/images/library/Website_Temp_/nbrc_website_marquee_newsite.jpg">
+				                		<img src="/web/20131022181622im_/http://nbrcjax.org/images/library/Website_Temp_/thumbnails/nbrc_website_marquee_newsite.jpg"/>
+				                	</a>
+								</li>
+							
+								<li data-link="http://nbrcjax.nextmeta.com/content.cfm?id=308&le=1" data-target="_self" data-effect="fade" data-delay="6000">
+				                	<a href="/web/20131022181622/http://nbrcjax.org/images/library/Website_Temp_/nbrc_website_marquee_firebible.jpg">
+				                		<img src="/web/20131022181622im_/http://nbrcjax.org/images/library/Website_Temp_/thumbnails/nbrc_website_marquee_firebible.jpg"/>
+				                	</a>
+								</li>
+							
+				    </ul>
+				</div>	
+			
+				
+				
+				
+			</div>
+		
+		
+	
+		<div id="content">
+		
+		<p>Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome</p>
+<p>Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome Welcome <a href="afasfasfd">Welcome Welcome</a> Welcome Welcome Welcome Welcome Welcome Welcome Welcome</p><hr />
+				
+			
+			
+		
+		</div>
+	
+		<div id="footer">
+
+			<address class="vcard">
+				
+				<span class="adr">
+				&copy;&nbsp;Copyright 2012,&nbsp;<a href="/web/20131022181622/http://nbrcjax.org/litesite.cfm" class="url fn org">New Berlin Road Church</a><br />
+				<span class="street-address">2351 New Berlin Rd.</span> &nbsp;|&nbsp; <span class="locality">Jacksonville</span>,&nbsp;<abbr class="region">FL</abbr>&nbsp;<span class="postal-code">32218</span></span><br />
+				<b>P:</b>&nbsp;<span class="tel">904-751-6411</span> &nbsp;|&nbsp; <b>E:</b>&nbsp;<a href="mailto:pastormatthew@comcast.net"><span class="email">pastormatthew@comcast.net</span></a> 	
+			</address>
+			
+					
+			
+ 			
+
+<ul id="social_media_links_list">
+<li>
+<a href="/web/20131022181622/http://www.facebook.com/newberlinroadchurch" onclick="target='_blank'" class="social_facebook"><img src="/web/20131022181622im_/http://nbrcjax.org/sr/images/social_icons/standard_16/icon_facebook.png" alt="Facebook" /></a>
+</li> <li>
+<a href="/web/20131022181622/http://www.twitter.com/newberlinroad" onclick="target='_blank'" class="social_twitter"><img src="/web/20131022181622im_/http://nbrcjax.org/sr/images/social_icons/standard_16/icon_twitter.png" alt="Twitter" /></a>
+</li> <li>
+<a href="/web/20131022181622/http://www.youtube.com/user/NewBerlinRoadChurch" onclick="target='_blank'" class="social_youtube"><img src="/web/20131022181622im_/http://nbrcjax.org/sr/images/social_icons/standard_16/icon_youtube.png" alt="YouTube" /></a>
+</li> <li>
+<a href="/web/20131022181622/https://chart.googleapis.com/chart?chs=300x300&amp;cht=qr&amp;chl=http%3A%2F%2Fnbrcjax%2Eorg%2Flitesite%2Ecfm%3Fid%3D135" rel="lytebox" title="Scan to Go Mobile" class="social_site_level_qr_code"><img src="/web/20131022181622im_/http://nbrcjax.org/sr/images/social_icons/standard_16/icon_qr.png" alt="QR" /></a>
+</li> 
+</ul>
+
+
+
+			<div id="design_credit">
+			
+			Mobile Site Powered by <a href="/web/20131022181622/http://www.faithconnector.com/" title="FaithConnector Church Websites">FaithConnector Church Websites</a>
+			
+			</div>
+			
+			
+		</div>
+	
+	</div>
+	
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 18:16:22 Oct 22, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:42:54 Feb 2, 2017.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
