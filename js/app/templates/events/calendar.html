@@ -1,0 +1,466 @@
+<div id="marquis_wrap">
+	<div id="sub_flashbox">
+		<img src="/images/marquee_nbrccalendar.jpg" alt="" style="width: 900px; height: 150px;" />
+	</div>
+</div>
+
+<div id="main">
+	<div id="content_sans_sidebar">
+		<h1>NBRC Calendar</h1>
+		<div id="breadcrumbs">
+			<div ng-include="'/js/app/templates/includes/inc_socialSharing.html'" ></div>
+			<a ui-sref="app.home" class="first">Home</a>
+			&raquo; <a href="javascript:void(null)" class="x245" style="cursor: default">Upcoming Events</a>
+			&raquo; <a ui-sref="app.calendar" class="active">NBRC Calendar</a>
+		</div>
+		<style>
+			.iconlink {
+				margin: 0px 0px !important;
+				display: inline !important;
+				border: none !important;
+			}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(
+					function() {
+						if (document.getElementById('sasp').value != '')
+							xmlhttpGet(document.getElementById('sasp').value,
+									'displayResult', 'ajaxCal');
+					});
+		</script>
+
+		<div style="display: none;">
+			<form action="javascript:xmlhttpGet(document.getElementById('sasp').value, 'displayResult', 'ajaxCal')" id="saspform">
+				<input type="text" size="125" id="sasp" value="" />
+			</form>
+		</div>
+
+		<div id="ajaxCal">
+			<style>
+				.calendar_toolbar {
+					margin: 10px 0;
+					vertical-align: middle;
+				}
+				
+				.calendar_toolbar_date {
+					line-height: 1.4;
+					margin: 0 0 0 10px;
+				}
+				
+				#ajaxcalnavbuttons {
+					float: left;
+					height: 28px;
+				}
+				
+				#mainCal {
+					width: 100%;
+				}
+				
+				#mainCal td {
+					width: 14%;
+				}
+				
+				#responsive_agenda {
+					display: none;
+				}
+				/* Show agenda view if screen size is < 900px */
+				@media screen and (max-width: 56.25em) {
+					#calendar_container {
+						display: none;
+					}
+					#responsive_agenda {
+						display: block;
+					}
+					.toggle_agenda_view {
+						display: none;
+					}
+					.toggle_month_view {
+						display: none;
+					}
+				}
+				
+				@media screen and (max-width: 34em) {
+					#ajaxcalviewbuttons {
+						clear: both;
+						float: left !important;
+						margin-top: 5px;
+					}
+				}
+			</style>
+
+			<div class="calendar_toolbar">
+				<div id="ajaxcalnavbuttons">
+					<a href="content.cfm?page_content=calendar_include.cfm&amp;month=9&amp;year=2013&amp;event_category=All" title="Previous Month">
+						<img src="/images/previous.png" alt="Previous Month" class="iconlink" />
+					</a> 
+					<a href="content.cfm?page_content=calendar_include.cfm&amp;month=11&amp;year=2013&amp;event_category=All" title="Next Month">
+						<img src="/images/next.png" alt="Next Month" class="iconlink" />
+					</a>
+				</div>
+
+				<h2 class="inline floatleft calendar_toolbar_date">
+					October 2013
+				</h2>
+				<div id="ajaxcalviewbuttons" class="inline floatright alignverticalmiddle">
+					<a href="content.cfm?page_content=calendar_include.cfm&amp;month=10&amp;year=2013&amp;event_category=All&amp;js=on&amp;format=agenda" title="Agenda View" class="toggle_agenda_view">
+						<img src="/images/list_icon.png" alt="Agenda View" class="iconlink" />
+					</a> 
+					<a href="content.cfm?page_content=calendar_include.cfm&amp;month=10&amp;year=2013&amp;event_category=All&amp;js=on&amp;format=month" title="Month View" class="toggle_month_view">
+						<img src="/images/calendar_month_icon.png" alt="Month View" class="iconlink" />
+					</a> 
+					<a href="calendar_rss_feed.cfm?month=10&amp;year=2013&amp;category=All" title="RSS Feed" onclick="target='_blank'">
+						<img src="/images/rss_web.png" alt="RSS Feed" class="iconlink" />
+					</a> 
+					<a href="calendar_printable_include.cfm?month=10&amp;year=2013&amp;calendar_event_category=All" title="Printable Calendar">
+						<img src="/images/printer.png" alt="Printable Calendar" class="iconlink" />
+					</a>
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+			<script type="text/javascript">
+				//<![CDATA[
+				document.getElementById("ajaxcalnavbuttons").innerHTML = "\r\n\r\n<a href=\"javascript:void(null);\" title=\"Previous Month\" onclick=\"document.getElementById(\'sasp\').value=\'calendar_ajax_include.cfm?month=9&amp;year=2013&amp;event_category=All&amp;js=on&amp;tlsn=content.cfm\'; document.getElementById(\'sasp\').blur(); document.getElementById(\'saspform\').submit();\"><img src=\"/images/previous.png\" alt=\"Previous Month\" class=\"iconlink\" /></a>\r\n\r\n<a href=\"javascript:void(null);\" title=\"Next Month\" onclick=\"document.getElementById(\'sasp\').value=\'calendar_ajax_include.cfm?month=11&amp;year=2013&amp;event_category=All&amp;js=on&amp;tlsn=content.cfm\'; document.getElementById(\'sasp\').blur(); document.getElementById(\'saspform\').submit();\"><img src=\"/images/next.png\" alt=\"Next Month\" class=\"iconlink\" /></a>\r\n\r\n\r\n\r\n";
+				//]]>
+			</script>
+			<script type="text/javascript">
+				//<![CDATA[
+				document.getElementById("ajaxcalviewbuttons").innerHTML = "\r\n\r\n<a href=\"javascript:void(null);\" title=\"Agenda View\" class=\"toggle_agenda_view\" onclick=\"document.getElementById(\'sasp\').value=\'calendar_ajax_include.cfm?month=10&amp;year=2013&amp;event_category=All&amp;js=on&amp;format=agenda&amp;tlsn=content.cfm\'; document.getElementById(\'sasp\').blur(); document.getElementById(\'saspform\').submit();\"><img src=\"/images/list_icon.png\" alt=\"Agenda View\" class=\"iconlink\" /></a>\r\n\r\n<a href=\"javascript:void(null);\" title=\"Month View\" class=\"toggle_month_view\" onclick=\"document.getElementById(\'sasp\').value=\'calendar_ajax_include.cfm?month=10&amp;year=2013&amp;event_category=All&amp;js=on&amp;format=month&amp;tlsn=content.cfm\'; document.getElementById(\'sasp\').blur(); document.getElementById(\'saspform\').submit();\"><img src=\"/images/calendar_month_icon.png\" alt=\"Month View\" class=\"iconlink\" /></a>\r\n\r\n<a href=\"calendar_rss_feed.cfm?month=10&year=2013&category=All\" title=\"RSS Feed\" onclick=\"target=\'_blank\'\"><img src=\"/images/rss_web.png\" alt=\"RSS Feed\" class=\"iconlink\" /></a>\r\n\r\n<a href=\"calendar_printable_include.cfm?month=10&amp;year=2013&amp;calendar_event_category=All\" target=\"_blank\" title=\"Printable Calendar\"><img src=\"/images/printer.png\" alt=\"Printable Calendar\" class=\"iconlink\" /></a>\r\n\r\n";
+				//]]>
+			</script>
+			<div id="calendar_container">
+				<table cellspacing="2" cellpadding="2" id="mainCal">
+					<tr>
+						<td class="ColumnHeader center">Sun</td>
+						<td class="ColumnHeader center">Mon</td>
+						<td class="ColumnHeader center">Tue</td>
+						<td class="ColumnHeader center">Wed</td>
+						<td class="ColumnHeader center">Thu</td>
+						<td class="ColumnHeader center">Fri</td>
+						<td class="ColumnHeader center">Sat</td>
+					</tr>
+					<tr>
+						<td width="14%" height="60" class="EmptyDay"></td>
+						<td width="14%" height="60" class="EmptyDay"></td>
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">1</span>
+							<br />
+						</td>
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">2</span>
+							<br />
+						</td>
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">3</span>
+							<br /> 
+							<a id="link3_10" class="tt" href="content.cfm?page_content=calendar_include.cfm&amp;event_id=10&amp;mm=10&amp;dd=3&amp;yy=2013">
+								<div class="calEventName">
+									&bull; NBRC Thursday Night Service
+								</div>
+								<span id="span3_10" class="tooltip"> 
+									<span class="CalOverTitle">
+										&bull; NBRC Thursday Night Service
+									</span> 
+									<br />
+									<b>Location</b>: First Baptist Church of Oceanway 
+									<br />
+									<b>Time</b>: 7:00PM -8:00PM 
+									<br />
+									<br />
+								</span>
+							</a> 
+							<script type="text/javascript">
+								//<![CDATA[
+								document
+										.getElementById("link3_10")
+										.setAttribute(
+												"title",
+												"cssbody=[boxoverbody] cssheader=[boxoverheader] header=[] body=[\r\n\t\t\t\t\t<span class=\"CalOverTitle\">&bull; NBRC Thursday Night Service</span>\r\n\t\t\t\t\t<br/><b>Location</b>: First Baptist Church of Oceanway <br/><b>Time</b>: 7:00PM -8:00PM \t\t\t\t\r\n\t\t\t\t\t<br/><br/>\t\r\n\t\t\t\t]");
+								document.getElementById("span3_10").classname = "";
+								document.getElementById("span3_10").className = "";
+								document.getElementById("span3_10").innerHTML = "";
+								//]]>
+							</script>
+						</td>
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">4</span>
+							<br />
+						</td>
+						<td width="14%" height="60" class="WeekendDay">
+							<span class="CalendarDayNumber">5</span>
+							<br />
+						</td>
+					</tr>
+					<tr>
+						<td width="14%" height="60" class="WeekendDay">
+							<span class="CalendarDayNumber">6</span>
+							<br />
+						</td>
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">7</span>
+							<br />
+						</td>
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">8</span>
+							<br />
+						</td>
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">9</span>
+							<br />
+						</td>
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">10</span>
+							<br /> 
+							<a id="link10_10" class="tt" href="content.cfm?page_content=calendar_include.cfm&amp;event_id=10&amp;mm=10&amp;dd=10&amp;yy=2013">
+								<div class="calEventName">
+									&bull; NBRC Thursday Night Service
+								</div>
+								<span id="span10_10" class="tooltip"> 
+									<span class="CalOverTitle">
+										&bull; NBRC Thursday Night Service
+									</span> 
+									<br />
+									<b>Location</b>: First Baptist Church of Oceanway 
+									<br />
+									<b>Time</b>: 7:00PM -8:00PM <br />
+									<br />
+								</span>
+							</a> 
+							<script type="text/javascript">
+								//<![CDATA[
+								document
+										.getElementById("link10_10")
+										.setAttribute(
+												"title",
+												"cssbody=[boxoverbody] cssheader=[boxoverheader] header=[] body=[\r\n\t\t\t\t\t<span class=\"CalOverTitle\">&bull; NBRC Thursday Night Service</span>\r\n\t\t\t\t\t<br/><b>Location</b>: First Baptist Church of Oceanway <br/><b>Time</b>: 7:00PM -8:00PM \t\t\t\t\r\n\t\t\t\t\t<br/><br/>\t\r\n\t\t\t\t]");
+								document.getElementById("span10_10").classname = "";
+								document.getElementById("span10_10").className = "";
+								document.getElementById("span10_10").innerHTML = "";
+								//]]>
+							</script>
+						</td>
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">11</span>
+							<br />
+						</td>
+						<td width="14%" height="60" class="WeekendDay">
+							<span class="CalendarDayNumber">12</span>
+							<br />
+						</td>
+					</tr>
+					<tr>
+						<td width="14%" height="60" class="WeekendDay">
+							<span class="CalendarDayNumber">13</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">14</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">15</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">16</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">17</span>
+							<br /> 
+							<a id="link17_10" class="tt" href="content.cfm?page_content=calendar_include.cfm&amp;event_id=10&amp;mm=10&amp;dd=17&amp;yy=2013">
+								<div class="calEventName">
+									&bull; NBRC Thursday Night Service
+								</div>
+								<span id="span17_10" class="tooltip"> 
+									<span class="CalOverTitle">&bull; NBRC Thursday Night Service</span> 
+									<br />
+									<b>Location</b>: First Baptist Church of Oceanway <br />
+									<b>Time</b>: 7:00PM -8:00PM <br />
+									<br />
+								</span>
+							</a> 
+							<script type="text/javascript">
+								//<![CDATA[
+								document
+										.getElementById("link17_10")
+										.setAttribute(
+												"title",
+												"cssbody=[boxoverbody] cssheader=[boxoverheader] header=[] body=[\r\n\t\t\t\t\t<span class=\"CalOverTitle\">&bull; NBRC Thursday Night Service</span>\r\n\t\t\t\t\t<br/><b>Location</b>: First Baptist Church of Oceanway <br/><b>Time</b>: 7:00PM -8:00PM \t\t\t\t\r\n\t\t\t\t\t<br/><br/>\t\r\n\t\t\t\t]");
+								document.getElementById("span17_10").classname = "";
+								document.getElementById("span17_10").className = "";
+								document.getElementById("span17_10").innerHTML = "";
+								//]]>
+							</script>
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">18</span>
+							<br />
+						</td>
+	
+						<td width="14%" height="60" class="WeekendDay">
+							<span class="CalendarDayNumber">19</span>
+							<br />
+						</td>
+					</tr>
+					<tr>
+						<td width="14%" height="60" class="WeekendDay">
+							<span class="CalendarDayNumber">20</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">21</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="ToDay">
+							<span class="CalendarCurrentDayNumber">22</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">23</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">24</span>
+							<br /> 
+							<a id="link24_10" class="tt" href="content.cfm?page_content=calendar_include.cfm&amp;event_id=10&amp;mm=10&amp;dd=24&amp;yy=2013">
+								<div class="calEventName">&bull; NBRC Thursday Night Service</div>
+								<span id="span24_10" class="tooltip"> 
+									<span class="CalOverTitle">&bull; NBRC Thursday Night Service</span> 
+									<br />
+									<b>Location</b>: First Baptist Church of Oceanway <br />
+									<b>Time</b>: 7:00PM -8:00PM <br />
+									<br />
+								</span>
+							</a> 
+							<script type="text/javascript">
+								//<![CDATA[
+								document
+										.getElementById("link24_10")
+										.setAttribute(
+												"title",
+												"cssbody=[boxoverbody] cssheader=[boxoverheader] header=[] body=[\r\n\t\t\t\t\t<span class=\"CalOverTitle\">&bull; NBRC Thursday Night Service</span>\r\n\t\t\t\t\t<br/><b>Location</b>: First Baptist Church of Oceanway <br/><b>Time</b>: 7:00PM -8:00PM \t\t\t\t\r\n\t\t\t\t\t<br/><br/>\t\r\n\t\t\t\t]");
+								document.getElementById("span24_10").classname = "";
+								document.getElementById("span24_10").className = "";
+								document.getElementById("span24_10").innerHTML = "";
+								//]]>
+							</script>
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">25</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekendDay">
+							<span class="CalendarDayNumber">26</span>
+							<br />
+						</td>
+					</tr>
+					<tr>
+						<td width="14%" height="60" class="WeekendDay">
+							<span class="CalendarDayNumber">27</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">28</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">29</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">30</span>
+							<br />
+						</td>	
+						<td width="14%" height="60" class="WeekDay">
+							<span class="CalendarDayNumber">31</span>
+							<br /> 
+							<a id="link31_10" class="tt" href="content.cfm?page_content=calendar_include.cfm&amp;event_id=10&amp;mm=10&amp;dd=31&amp;yy=2013">
+								<div class="calEventName">&bull; NBRC Thursday Night Service</div>
+								<span id="span31_10" class="tooltip"> 
+									<span class="CalOverTitle">&bull; NBRC Thursday Night Service</span> 
+									<br />
+									<b>Location</b>: First Baptist Church of Oceanway <br />
+									<b>Time</b>: 7:00PM -8:00PM <br />
+									<br />
+								</span>
+							</a> 
+							<script type="text/javascript">
+								//<![CDATA[
+								document
+										.getElementById("link31_10")
+										.setAttribute(
+												"title",
+												"cssbody=[boxoverbody] cssheader=[boxoverheader] header=[] body=[\r\n\t\t\t\t\t<span class=\"CalOverTitle\">&bull; NBRC Thursday Night Service</span>\r\n\t\t\t\t\t<br/><b>Location</b>: First Baptist Church of Oceanway <br/><b>Time</b>: 7:00PM -8:00PM \t\t\t\t\r\n\t\t\t\t\t<br/><br/>\t\r\n\t\t\t\t]");
+								document.getElementById("span31_10").classname = "";
+								document.getElementById("span31_10").className = "";
+								document.getElementById("span31_10").innerHTML = "";
+								//]]>
+							</script>
+						</td>	
+						<td width="14%" height="60" class="EmptyDay"></td>	
+						<td width="14%" height="60" class="EmptyDay"></td>
+					</tr>
+				</table>
+			</div>
+			<div id="responsive_agenda">
+				<div class="clear"></div>
+				<hr />
+				<h2 class="ColumnHeader">October 3, 2013</h2>
+				<div>
+					<a href="content.cfm?page_content=calendar_include.cfm&amp;event_id=10&amp;mm=10&amp;dd=3&amp;yy=2013">
+						<strong>&bull; NBRC Thursday Night Service</strong>
+					</a> 
+					<br />
+					<strong>Time: </strong>7:00PM -8:00PM <br />
+					<strong>Location: </strong>First Baptist Church of Oceanway <br />
+					<hr />
+				</div>
+				<h2 class="ColumnHeader">October 10, 2013</h2>
+				<div>
+					<a href="content.cfm?page_content=calendar_include.cfm&amp;event_id=10&amp;mm=10&amp;dd=10&amp;yy=2013">
+						<strong>&bull; NBRC Thursday Night Service</strong>
+					</a> 
+					<br />
+					<strong>Time: </strong>7:00PM -8:00PM <br />
+					<strong>Location: </strong>First Baptist Church of Oceanway <br />
+					<hr />
+				</div>
+				<h2 class="ColumnHeader">October 17, 2013</h2>
+				<div>
+					<a href="content.cfm?page_content=calendar_include.cfm&amp;event_id=10&amp;mm=10&amp;dd=17&amp;yy=2013">
+						<strong>&bull; NBRC Thursday Night Service</strong>
+					</a> 
+					<br />
+					<strong>Time: </strong>7:00PM -8:00PM <br />
+					<strong>Location: </strong>First Baptist Church of Oceanway <br />
+					<hr />
+				</div>
+				<h2 class="ColumnHeader">October 24, 2013</h2>
+				<div>
+					<a href="content.cfm?page_content=calendar_include.cfm&amp;event_id=10&amp;mm=10&amp;dd=24&amp;yy=2013">
+						<strong>&bull; NBRC Thursday Night Service</strong>
+					</a> 
+					<br />
+					<strong>Time: </strong>7:00PM -8:00PM <br />
+					<strong>Location: </strong>First Baptist Church of Oceanway <br />
+					<hr />
+				</div>
+				<h2 class="ColumnHeader">October 31, 2013</h2>
+				<div>
+					<a href="content.cfm?page_content=calendar_include.cfm&amp;event_id=10&amp;mm=10&amp;dd=31&amp;yy=2013">
+						<strong>&bull; NBRC Thursday Night Service</strong>
+					</a> 
+					<br />
+					<strong>Time: </strong>7:00PM -8:00PM <br />
+					<strong>Location: </strong>First Baptist Church of Oceanway <br />
+					<hr />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="no_sidebar"></div>
+</div>
+<div class="clear"></div>
