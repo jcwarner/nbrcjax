@@ -21,47 +21,40 @@
 				904-751-6411
 			</span>
 		</strong>
+		
+		<div ng-class="alertClass" ng-hidden="{{!alertMessage}}">{{alertMessage}}</div>
 
-		<style type="text/css" media="screen, projection, print">
-			<!--
-			.SDRequired {
-				display: none;
-				visibility: hidden;
-			}
-			-->
-		</style>
-
-		<form class="responsive" action="https://script.google.com/a/macros/tenacitech.com/s/AKfycbwTA5fsM8Yfx9fZTTe8OQZeW1fA68QUwnbdkhA8bxNMAIua7Bs/exec" method="post">
+		<form name="contactForm" class="responsive" ng-submit="contactSubmit()">
 			<ul>
 				<li>
 					<label class="RequiredFieldLabel">First Name *</label> 
-					<input type="text" name="first_name" value="">
+					<input type="text" name="first_name" ng-model="contact.firstName" value="" required>
 				</li>
 				<li>
 					<label class="RequiredFieldLabel">Last Name *</label> 
-					<input type="text" name="last_name" value="">
+					<input type="text" name="last_name" ng-model="contact.lastName" value="" required>
 				</li>
 			</ul>
 			<ul>
 				<li>
 					<label>Street Address</label> 
-					<input type="text" class="largeField" name="street_address" value="">
+					<input type="text" class="largeField" name="street_address" ng-model="contact.streetAddress" value="">
 				</li>
 			</ul>
 			<ul>
 				<li>
 					<label>Other Address</label> 
-					<input type="text" class="largeField" name="other_address" value="">
+					<input type="text" class="largeField" name="other_address" ng-model="contact.otherAddress" value="">
 				</li>
 			</ul>
 			<ul>
 				<li>
 					<label>City</label> 
-					<input type="text" name="city" value="">
+					<input type="text" name="city" ng-model="contact.city" value="">
 				</li>
 				<li>
 					<label>State/Province</label> 
-					<select name="state">
+					<select name="state" ng-model="contact.state">
 						<option value="">...
 						<option value="AL">Alabama
 						<option value="AK">Alaska
@@ -129,13 +122,13 @@
 				</li>
 				<li>
 					<label>Zip/Postal Code</label> 
-					<input type="text" class="smallField" name="zip" value="">
+					<input type="text" class="smallField" name="zip" ng-model="contact.zip" value="">
 				</li>
 			</ul>
 			<ul>
 				<li>
 					<label>Country</label> 
-					<select name="country">
+					<select name="country" ng-model="contact.country">
 						<option value="">...
 						<option value="United States">United States
 						<option value="Canada">Canada
@@ -392,42 +385,27 @@
 				</li>
 				<li>
 					<label>Region <span class="SmallNote">(Not U.S. or CAN)</span></label> 
-					<input type="text" name="region" value="">
+					<input type="text" name="region" ng-model="contact.region" value="">
 				</li>
 			</ul>
 			<ul>
 				<li>
 					<label>Primary Phone</label> 
-					<input type="text" name="primary_phone" value="">
+					<input type="text" name="primary_phone" ng-model="contact.primaryPhone" value="">
 				</li>
 			</ul>
 			<ul>
 				<li>
 					<label class="RequiredFieldLabel">Email Address *</label> 
-					<input type="text" class="largeField" name="email_address" value="">
+					<input type="email" class="largeField" name="email_address" ng-model="contact.emailAddress" value="" required>
 				</li>
 			</ul>
 			<ul>
 				<li>
 					<label class="RequiredFieldLabel">Inquiry or Comment *</label> 
-					<textarea name="inquiry"></textarea>
+					<textarea name="inquiry" ng-model="contact.inquiry" required></textarea>
 				</li>
 			</ul>
-			<p class="SDRequired">NOTE: Do Not Alter These Fields:</p>
-			<label class="SDRequired">
-				Email: <input type="text" name="email" class="SDRequired" value="" />
-			</label> 
-			<input type="checkbox" name="name29" class="SDRequired" value="1" />
-			<input type="text" name="email86" class="SDRequired" /> 
-			<input type="text" name="address254" class="SDRequired" /> 
-			<input name="captcha_hash" type="hidden" value="eLmXYpstYMNc1r9okGO4WQ%3D%3D"> 
-			<input	name="captcha_value" type="hidden" value="89D40F118CBD0164">
-			<input name="captcha_text" type="hidden" value="17FD97689153011A0C4F2425FE6E52D9"> 
-			<input name="captcha_field" type="hidden" value="899D696864DEC1A9D7CE53C0304E9C563CE0AB94802C56F084361FBA4F26F234">
-			<input name="captcha_checksum" type="hidden" value="3"> 
-			<input name="submitted_date" type="hidden" value="1382454036207"> 
-			<input type="hidden" name="what_to_do" value="add">
-
 			<ul>
 				<li>
 					<input type="submit" class="submitbutton" value="Send &#187;">
