@@ -1,16 +1,16 @@
 (function() {
     var app = angular.module("nbrcjax");
-    app.controller("contactController", ['$scope', '$http', '$location', '$window', 'jQuery', '$log', '$controller', contactController]);
+    app.controller("contactController", ['$scope', '$http', '$location', '$window', 'jQuery', '$log', '$controller', 'config', contactController]);
     
         
-    function contactController($scope, $http, $location, $window, $, $log, $controller) {
+    function contactController($scope, $http, $location, $window, $, $log, $controller, config) {
     	$controller('baseController', {$scope: $scope});
     	$scope.contactSubmit = contactSubmit;
     	$scope.contact = {};
     	$scope.alertClass = "hidden";
     	
     	function contactSubmit(){
-    		open('POST', 'https://script.google.com/macros/s/AKfycbwTA5fsM8Yfx9fZTTe8OQZeW1fA68QUwnbdkhA8bxNMAIua7Bs/exec', $scope.contact, '_blank');
+    		open('POST', config.contactEmailService, $scope.contact, '_blank');
     		$scope.contact = {};
     	}
     	

@@ -2,6 +2,11 @@
     var app = angular.module("nbrcjax", [
         'ui.router',
         "ngRoute"]);
+    
+    app.constant('config', {
+    	contactEmailService: 'https://script.google.com/macros/s/AKfycbwTA5fsM8Yfx9fZTTe8OQZeW1fA68QUwnbdkhA8bxNMAIua7Bs/exec',
+    	calendarService: ''
+    });
 
     app.factory('jQuery', ['$window', function ($window) {
         return $window.jQuery;
