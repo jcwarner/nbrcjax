@@ -5,7 +5,7 @@
     
     app.constant('config', {
     	contactEmailService: 'https://script.google.com/macros/s/AKfycbwTA5fsM8Yfx9fZTTe8OQZeW1fA68QUwnbdkhA8bxNMAIua7Bs/exec',
-    	calendarService: ''
+    	calendarService: 'https://churchtraconline.com/public_calendar?ui=3D11E3'
     });
 
     app.factory('jQuery', ['$window', function ($window) {
