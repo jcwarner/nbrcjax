@@ -5,7 +5,9 @@
     
     app.constant('config', {
     	contactEmailService: 'https://script.google.com/macros/s/AKfycbwTA5fsM8Yfx9fZTTe8OQZeW1fA68QUwnbdkhA8bxNMAIua7Bs/exec',
-    	calendarService: 'https://churchtraconline.com/public_calendar?ui=3D11E3'
+    	calendarService: 'https://churchtraconline.com/public_calendar?ui=3D11E3',
+    	announcementService: 'https://spreadsheets.google.com/feeds/cells/1nmjXnWF6zIWITOAIO9yZKRqdGomcQDo9yZYmzXGAoI8/1/public/values?alt=json-in-script'
+    	//announcementService: 'https://spreadsheets.google.com/feeds/cells/1nmjXnWF6zIWITOAIO9yZKRqdGomcQDo9yZYmzXGAoI8/1/public/basic?alt=json'
     });
 
     app.factory('jQuery', ['$window', function ($window) {
@@ -19,10 +21,10 @@
         }    
 
         //disable IE ajax request caching
-        $httpProvider.defaults.headers.get['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
+        //$httpProvider.defaults.headers.get['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
         // extra
-        $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
-        $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
+        //$httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
+        //$httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
     }]);
 
     app.filter('ctime', function () {
