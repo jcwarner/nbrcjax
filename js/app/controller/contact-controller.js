@@ -10,6 +10,7 @@
     	$scope.alertClass = "hidden";
     	
     	function contactSubmit(){
+    		
     		$.ajax({
     		    type: 'POST',
     		    url: config.contactEmailService,
