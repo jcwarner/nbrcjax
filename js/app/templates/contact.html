@@ -24,7 +24,7 @@
 		
 		<div ng-class="alertClass" ng-hidden="{{!alertMessage}}">{{alertMessage}}</div>
 
-		<form name="contactForm" class="responsive" ng-submit="contactSubmit()">
+		<form name="contactForm" class="responsive" ng-submit="contactSubmit()" novalidate="novalidate">
 			<ul>
 				<li>
 					<label class="RequiredFieldLabel">First Name *</label> 

@@ -10,8 +10,22 @@
     	$scope.alertClass = "hidden";
     	
     	function contactSubmit(){
-    		open('POST', config.contactEmailService, $scope.contact, '_blank');
+    		$.ajax({
+    		    type: 'POST',
+    		    url: config.contactEmailService,
+    		    crossDomain: true,
+    		    data: $scope.contact,
+    		    dataType: 'jsonp',
+    		    success: onSubmitContactSuccess,
+    		    error: onSubmitContactError
+    		});
+    		//$http.post(config.contactEmailService + "&callback=x", $scope.contact).then(onSubmitContactSuccess, onSubmitContactError);
+    		//open('POST', config.contactEmailService, $scope.contact, 'contactSend');
     		$scope.contact = {};
+    	}
+    	
+    	function x(e){
+    		console.log(e);
     	}
     	
     	function onSubmitContactSuccess(){
